@@ -1,18 +1,18 @@
 #include <avr/pgmspace.h>
 
-const int kPin_D0 = 2;
-const int kPin_D1 = 3;
-const int kPin_D2 = 4;
-const int kPin_D3 = 6;
-const int kPin_D4 = 7;
-const int kPin_D5 = A3;
-const int kPin_D6 = A4;
-const int kPin_D7 = A5;
-const int kPin_NotWE = 5;
+const int kPin_D0 = A0;
+const int kPin_D1 = A1;
+const int kPin_D2 = A2;
+const int kPin_D3 = A3;
+const int kPin_D4 = 4;
+const int kPin_D5 = 5;
+const int kPin_D6 = 6;
+const int kPin_D7 = 7;
+const int kPin_NotWE = 8;
 
-const int L1 = A2;
-const int L2 = A1;
-const int L3 = A0;
+const int L1 = 9;
+const int L2 = 10;
+const int L3 = 11;
 
 unsigned long previousMillisLED = 0;
 int lednum = 1;
@@ -1341,6 +1341,12 @@ uint16_t Samples = 0;
 uint16_t vgmpos = 0;
 
 void setup() {
+  pinMode(3, OUTPUT);
+  TCCR2A = 0x23;  // 00100011
+  TCCR2B = 0x09;  // 00001001
+  OCR2A = 3;
+  OCR2B = 1;
+  
   pinMode(kPin_D0, OUTPUT);
   pinMode(kPin_D1, OUTPUT);
   pinMode(kPin_D2, OUTPUT);
