@@ -13,6 +13,7 @@ const int kPin_NotWE = 8;
 const int L1 = 9;
 const int L2 = 10;
 const int L3 = 11;
+const int L4 = 12;
 
 unsigned long previousMillisLED = 0;
 int lednum = 1;
@@ -1487,7 +1488,7 @@ void loop() {
   } //end switch
 
   unsigned long currentMillisLED = micros();
-  if (currentMillisLED - previousMillisLED > 100)
+  if (currentMillisLED - previousMillisLED > 20)
   {
     previousMillisLED = currentMillisLED;
     switch (lednum)
@@ -1559,47 +1560,47 @@ void SilenceAllChannels()
 }
 
 void LED01() {
-  pinMode(L1, INPUT);  //Z
-  digitalWrite(L1, LOW);
-
-  pinMode(L2, OUTPUT);  //L
-  digitalWrite(L2, HIGH);
-
-  pinMode(L3, OUTPUT);  // H
+  pinMode(L4, OUTPUT);  //H
+  digitalWrite(L4, LOW);
+    pinMode(L3, OUTPUT);  //H
   digitalWrite(L3, LOW);
+    pinMode(L2, OUTPUT);  //H
+  digitalWrite(L2, LOW);
+    pinMode(L1, OUTPUT);  //H
+  digitalWrite(L1, HIGH);
 }
 
 void LED02() {
-  pinMode(L1, INPUT);  //Z
+  pinMode(L4, OUTPUT);  //H
+  digitalWrite(L4, LOW);
+    pinMode(L3, OUTPUT);  //H
+  digitalWrite(L3, LOW);
+    pinMode(L2, OUTPUT);  //H
+  digitalWrite(L2, HIGH);
+    pinMode(L1, OUTPUT);  //H
   digitalWrite(L1, LOW);
-
-  pinMode(L2, OUTPUT);  //H
-  digitalWrite(L2, LOW);
-
-  pinMode(L3, OUTPUT);  // L
-  digitalWrite(L3, HIGH);
 }
 
 void LED03() {
-  pinMode(L1, OUTPUT);  //L
-  digitalWrite(L1, LOW);
-
-  pinMode(L2, INPUT);  //Z
-  digitalWrite(L2, LOW);
-
-  pinMode(L3, OUTPUT);  // H
+  pinMode(L4, OUTPUT);  //H
+  digitalWrite(L4, LOW);
+    pinMode(L3, OUTPUT);  //H
   digitalWrite(L3, HIGH);
+    pinMode(L2, OUTPUT);  //H
+  digitalWrite(L2, LOW);
+    pinMode(L1, OUTPUT);  //H
+  digitalWrite(L1, LOW);
 }
 
 void LED04() {
-  pinMode(L1, OUTPUT);  //H
-  digitalWrite(L1, HIGH);
-
-  pinMode(L2, INPUT);  //Z
-  digitalWrite(L2, LOW);
-
-  pinMode(L3, OUTPUT);  // L
+  pinMode(L4, OUTPUT);  //H
+  digitalWrite(L4, HIGH);
+    pinMode(L3, OUTPUT);  //H
   digitalWrite(L3, LOW);
+    pinMode(L2, OUTPUT);  //H
+  digitalWrite(L2, LOW);
+    pinMode(L1, OUTPUT);  //H
+  digitalWrite(L1, LOW);
 }
 
 void LEDsOFF() {
@@ -1611,4 +1612,7 @@ void LEDsOFF() {
 
   pinMode(L3, OUTPUT);  // L
   digitalWrite(L3, LOW);
+  
+  pinMode(L4, OUTPUT);  // L
+  digitalWrite(L4, LOW);
 }
