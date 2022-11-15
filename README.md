@@ -8,3 +8,4 @@ This project is related to the sound chip SN76489 that has 4 four channels (3 fo
 
 Project Schematic:
 ![Alt text](schematic.png?raw=true "Title")
+Note: you need to connecting pin next to audio output to ground, or it will not work!!!
